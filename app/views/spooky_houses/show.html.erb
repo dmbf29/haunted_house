@@ -1,0 +1,20 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @spooky_house.banner_url %>);">
+  <div class="container">
+    <h1><%= @spooky_house.name %></h1>
+    <p>Get spooked!</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="cards my-3">
+    <% @spooky_house.monsters.each do |monster| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= monster.image_url %>)">
+        <%= monster.name %>
+        <%= link_to monster_path(monster), class: "card-remove-link", method: :delete, data: {confirm: "Do you really want to exorcise #{monster.name}?"} do %>
+          <i class="fas fa-cross"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

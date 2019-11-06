@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="text-center mt-3">Apply to Haunt at <%= @spooky_house.name %></h1>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for [@spooky_house, @monster] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :species %>
+        <%= f.input :catch_phrase %>
+        <%= f.input :image_url %>
+        <%= f.submit "Apply", class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+  </div>
+</div>
