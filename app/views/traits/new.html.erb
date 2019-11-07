@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Add Weakness to <%= @monster.name %></h1>
+
+  <%= simple_form_for [@monster, @trait] do |f| %>
+    <%= f.association :weakness, collection: @weaknesses, input_html: {multiple: true} %>
+    <%= f.submit %>
+  <% end %>
+</div>

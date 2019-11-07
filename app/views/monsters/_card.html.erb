@@ -1,0 +1,14 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= monster.image_url %>)">
+  <%= link_to new_monster_trait_path(monster), class: "card-weakness-link" do %>
+    <i class="fas fa-heart-broken"></i>
+  <% end %>
+  <%= monster.name %>
+  <%= link_to monster_path(monster), class: "card-remove-link", method: :delete, data: {confirm: "Do you really want to exorcise #{monster.name}?"} do %>
+    <i class="fas fa-cross"></i>
+  <% end %>
+  <div class="monster-weaknesses">
+    <% monster.weaknesses.each do |weakness| %>
+      <span><%= weakness.name %></span>
+    <% end %>
+  </div>
+</div>
