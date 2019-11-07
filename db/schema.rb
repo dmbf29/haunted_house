@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_085818) do
+ActiveRecord::Schema.define(version: 2019_11_07_084708) do
 
   create_table "monsters", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(version: 2019_11_06_085818) do
   create_table "spooky_houses", force: :cascade do |t|
     t.string "name"
     t.string "banner_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "traits", force: :cascade do |t|
+    t.integer "monster_id"
+    t.integer "weakness_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["monster_id"], name: "index_traits_on_monster_id"
+    t.index ["weakness_id"], name: "index_traits_on_weakness_id"
+  end
+
+  create_table "weaknesses", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
